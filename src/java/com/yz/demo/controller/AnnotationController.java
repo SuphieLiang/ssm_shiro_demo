@@ -40,10 +40,13 @@ public class AnnotationController {
 
     @RequestMapping(value = "hello1.do",method =RequestMethod.POST)
     public String hello1(String username, String password, HttpSession session) {
+        System.out.println(username);
+        System.out.println(password);
        /* Set<String> lists=service.findRoles(username);
         System.out.println(lists);*/
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(username, password,true);
+        System.out.println(token);
         subject.login(token);
       /*  if(lists.contains("admin")){
             subject.checkRole("admin");
@@ -57,7 +60,7 @@ public class AnnotationController {
        // System.out.println(subject.isRemembered());
       if(subject.hasRole("admin")){
           subject.checkRole("admin");
-          return "successadmin";
+          return "index";
       }else if(subject.hasRole("customer")){
           subject.checkRole("customer");
           return  "successcustomer";

@@ -34,15 +34,14 @@
 <body>
 
 <table>
-    <c:forEach items="${sessionScope.get(lists)}" var="item">
+    <c:forEach items="${lists}" var="item">
         <tr >
             <td class="center"><span class="center">${item.title}</span></td>
             <td>${item.sell_point}</td>
             <td>${item.price}</td>
-            <td>${item.num}</td>
             <td>${item.barcode}</td>
-            <td>${item.status}</td>
             <td>${item.image}</td>
+            <td>${item.status}</td>
             <td>${item.created}</td>
             <td>${item.updated}</td>
         </tr>
